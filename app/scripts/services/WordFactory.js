@@ -11,7 +11,8 @@
 
       return $http(retrieveWord).then(function successCallback(response) {
         WordFactory.newWord = response.data;
-        console.log(WordFactory.newWord)
+        localStorage.setItem("challengeWord", WordFactory.newWord.word)
+        console.log(localStorage.getItem("challengeWord"));
       });
     };
 

@@ -1,4 +1,3 @@
-<button ng-click="gameboard.newGame();">New Game!</button>
-<div>
-  {{ gameboard.WordFactory.newWord.word }}
+<div ng-repeat="letter in gameboard.puzzle track by $index">
+  <div>{{ letter }}</div>
 </div>
