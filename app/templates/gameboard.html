@@ -1,3 +1,13 @@
-<div ng-repeat="letter in gameboard.puzzle track by $index">
-  <div>{{ letter }}</div>
+<button ng-click="gameboard.newGame();">New Game!</button>
+<div class="jumbotron">
+  <div ng-repeat="letter in gameboard.puzzle track by $index" class="puzzle">
+    <h1 class="display-4">{{ letter }}</h1>
+  </div>
+
+  <form name="guessLetter">
+    <div class="form-group">
+      <textarea class="form-control" rows="1" ng-model="gameboard.letter"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="gameboard.submitLetter()">Submit</button>
+  </form>
 </div>
