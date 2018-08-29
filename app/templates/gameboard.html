@@ -33,7 +33,12 @@
   </form>
 </div>
 
-<h3>Incorrect Letters</h3>
-<div ng-repeat="letter in gameBoard.incorrectLetters track by $index" class="puzzle">
-  <h4 class="display-4">{{ letter }}</h4>
+<div ng-show="gameBoard.showIncorrect">
+  <h3>Incorrect Letters ({{ gameBoard.guessesLeft }}
+    <span ng-show="gameBoard.guessesLeft > 1">guesses</span>
+    <span ng-show="gameBoard.guessesLeft == 1">guess</span> left!)
+  </h3>
+  <div ng-repeat="letter in gameBoard.incorrectLetters track by $index" class="puzzle">
+    <h4 class="display-4">{{ letter }}</h4>
+  </div>
 </div>

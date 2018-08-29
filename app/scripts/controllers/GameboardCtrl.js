@@ -5,6 +5,9 @@
       let challengeWordArray;
       let incorrectGuesses = 0;
       let frm = document.getElementsByName('guessLetter')[0];
+      ctrl.guessesLeft = 6;
+      ctrl.showIncorrect = false;
+
 
       const createPuzzle = function() {
         challengeWord = localStorage.getItem("challengeWord");
@@ -19,6 +22,7 @@
       ctrl.newGame = function() {
         WordFactory.retrieveWord().then(function() {
           createPuzzle();
+          ctrl.showIncorrect = true;
         });
       };
 
@@ -32,16 +36,16 @@
             }
           } else {
             incorrectGuesses += 1;
+            ctrl.guessesLeft -= 1;
             ctrl.incorrectLetters.push(ctrl.letter);
             if (incorrectGuesses == 6) {
               $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
               incorrectGuesses = 0;
+              ctrl.guessesLeft = 6;
             }
           }
           frm.reset();
         }
-
-        ctrl.WordFactory = WordFactory;
 
       }
 
