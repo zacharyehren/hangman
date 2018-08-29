@@ -23,6 +23,9 @@
           createPuzzle();
           ctrl.showIncorrect = true;
           ctrl.guessesLeft = 6;
+          incorrectGuesses = 0;
+          ctrl.playerWon = false;
+          ctrl.playerLost = false;
         });
       };
 
@@ -38,16 +41,19 @@
             incorrectGuesses += 1;
             ctrl.guessesLeft -= 1;
             ctrl.incorrectLetters.push(ctrl.letter);
-            if (incorrectGuesses == 6) {
-              gameOver();
-            }
           }
           frm.reset();
+          gameOver();
         }
 
         const gameOver = function(){
+          if (!ctrl.puzzle.includes("_")) {
+            ctrl.playerWon = true;
             $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
-            incorrectGuesses = 0;
+          } else if (incorrectGuesses == 6) {
+            ctrl.playerLost = true;
+            $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
+          }
         }
 
       }
