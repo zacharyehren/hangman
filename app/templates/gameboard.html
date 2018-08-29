@@ -1,13 +1,18 @@
-<button ng-click="gameboard.newGame();">New Game!</button>
+<button ng-click="gameBoard.newGame();">New Game!</button>
 <div class="jumbotron">
-  <div ng-repeat="letter in gameboard.puzzle track by $index" class="puzzle">
+  <div ng-repeat="letter in gameBoard.puzzle track by $index" class="puzzle">
     <h1 class="display-4">{{ letter }}</h1>
   </div>
 
-  <form name="guessLetter">
+  <form name="guessLetter" style="clear: both;">
     <div class="form-group">
-      <textarea class="form-control" rows="1" ng-model="gameboard.letter"></textarea>
+      <input type="text" ng-model="gameBoard.letter" maxlength="1">
     </div>
-    <button type="submit" class="btn btn-primary" ng-click="gameboard.submitLetter()">Submit</button>
+    <button type="submit" class="btn btn-primary" ng-click="gameBoard.submitLetter()">Submit</button>
   </form>
+</div>
+
+<h3>Incorrect Letters</h3>
+<div ng-repeat="letter in gameBoard.incorrectLetters track by $index" class="puzzle">
+  <h4 class="display-4">{{ letter }}</h4>
 </div>

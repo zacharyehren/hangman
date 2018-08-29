@@ -8,10 +8,10 @@
       });
 
     $stateProvider
-      .state('gameboard', {
+      .state('gameBoard', {
         url: '/',
-        controller: 'GameboardCtrl as gameboard',
-        templateUrl: '/templates/gameboard.html'
+        controller: 'GameBoardCtrl as gameBoard',
+        templateUrl: '/templates/gameBoard.html'
       })
   }
 
