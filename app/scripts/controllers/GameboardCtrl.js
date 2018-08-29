@@ -33,10 +33,13 @@
           } else {
             incorrectGuesses += 1;
             ctrl.incorrectLetters.push(ctrl.letter);
+            if (incorrectGuesses == 6) {
+              $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
+              incorrectGuesses = 0;
+            }
           }
           frm.reset();
         }
-
 
         ctrl.WordFactory = WordFactory;
 

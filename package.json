@@ -13,9 +13,10 @@
   "author": "Zach Ehren",
   "license": "ISC",
   "dependencies": {
+    "angular-modal-service": "^0.14.1",
     "hapi": "~16.4.0",
-    "path": "^0.4.9",
-    "inert": "^4.2.0"
+    "inert": "^4.2.0",
+    "path": "^0.4.9"
   },
   "engines": {
     "node": ">=6.11.1"
