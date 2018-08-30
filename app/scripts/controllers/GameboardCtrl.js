@@ -1,5 +1,5 @@
 (function() {
-    function GameBoardCtrl(WordFactory, $location) {
+    function GameBoardCtrl(WordFactory, UsersFactory, $location) {
       ctrl = this;
       let challengeWord;
       let challengeWordArray;
@@ -50,15 +50,21 @@
           if (!ctrl.puzzle.includes("_")) {
             ctrl.playerWon = true;
             $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
+            UsersFactory.gameCompleted(1, 0);
           } else if (incorrectGuesses == 6) {
             ctrl.playerLost = true;
+            UsersFactory.gameCompleted(0, 1);
             $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
           }
+        }
+
+        ctrl.submitUser = function(){
+          UsersFactory.createUser(ctrl.username, ctrl.password)
         }
 
       }
 
       angular
         .module('hangman')
-        .controller('GameBoardCtrl', ['WordFactory', '$location', GameBoardCtrl]);
+        .controller('GameBoardCtrl', ['WordFactory', 'UsersFactory', '$location', GameBoardCtrl]);
     })();

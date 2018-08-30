@@ -1,7 +1,7 @@
 (function() {
   function WordFactory($http) {
 
-    var WordFactory = {};
+    const WordFactory = {};
 
     WordFactory.retrieveWord = function(){
       var retrieveWord = {

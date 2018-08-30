@@ -13,6 +13,7 @@
   "author": "Zach Ehren",
   "license": "ISC",
   "dependencies": {
+    "angular-cookies": "^1.7.3",
     "angular-modal-service": "^0.14.1",
     "hapi": "~16.4.0",
     "inert": "^4.2.0",

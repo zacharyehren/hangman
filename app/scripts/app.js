@@ -8,14 +8,19 @@
       });
 
     $stateProvider
-      .state('gameBoard', {
+      .state('signInPage', {
         url: '/',
+        controller: 'SignInPageCtrl as signInPage',
+        templateUrl: '/templates/signInPage.html'
+      })
+      .state('gameBoard', {
+        url: '/gameBoard',
         controller: 'GameBoardCtrl as gameBoard',
         templateUrl: '/templates/gameBoard.html'
-      })
+      });
   }
 
   angular
-    .module('hangman', ['ui.router', 'ui.bootstrap', 'ngRoute'])
+    .module('hangman', ['ui.router', 'ui.bootstrap', 'ngCookies', 'ngRoute'])
     .config(config);
 })();
