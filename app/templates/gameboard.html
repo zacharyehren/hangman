@@ -28,7 +28,7 @@
 
   <form name="guessLetter" style="clear: both;">
     <div class="form-group">
-      <input type="text" ng-model="gameBoard.letter" maxlength="1">
+      <input type="text" ng-model="gameBoard.letter" maxlength="1" required>
     </div>
     <button type="submit" class="btn btn-primary" ng-click="gameBoard.submitLetter()">Submit</button>
   </form>

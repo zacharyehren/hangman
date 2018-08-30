@@ -56,12 +56,12 @@
       };
 
       $http(currentUser).then(function successCallback(response) {
-        currentUser = response.data;
-        console.log(currentUser);
+        UsersFactory.showUserData = response.data;
+        console.log(UsersFactory.showUserData);
       });
     };
 
-    UsersFactory.updateUser = function(wins, losses, totalGames) {
+    UsersFactory.updateUser = function(wins, losses, totalGames, average) {
       var updateUser = {
         method: 'PUT',
         url: 'http://localhost:3000/users/' + $cookies.get('userId'),
@@ -70,7 +70,8 @@
             id: $cookies.get('userId'),
             wins: wins,
             losses: losses,
-            total_games: totalGames
+            total_games: totalGames,
+            average: average
           }
         }
       };
@@ -84,7 +85,8 @@
       userStats.wins += wins;
       userStats.losses += losses;
       userStats.totalGames += 1;
-      UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames)
+      userStats.average = (userStats.wins / userStats.totalGames)
+      UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames, userStats.average)
       console.log(userStats);
     };
 
