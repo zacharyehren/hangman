@@ -13,7 +13,7 @@
 
 
     UsersFactory.signInUser = function(username, password) {
-      var users_request = {
+      var user_request = {
         method: 'POST',
         url: 'http://localhost:3000/users/authenticate',
         data: {
@@ -22,9 +22,9 @@
         }
       };
 
-      $http(users_request).then(function successCallback(response) {
+      $http(user_request).then(function successCallback(response) {
         currentUser = response.data
-        updateUserInfo();
+        retrieveUserInfo();
         console.log(currentUser);
       });
     };
@@ -44,18 +44,30 @@
 
       $http(newUser).then(function successCallback(response) {
         currentUser = response.data;
-        updateUserInfo();
+        retrieveUserInfo();
         console.log(newUser);
       });
     };
 
-    UsersFactory.updateUser = function(userId, wins, losses, totalGames) {
-      var newUser = {
+    UsersFactory.showUser = function() {
+      var currentUser = {
+        method: 'GET',
+        url: 'http://localhost:3000/users/' + $cookies.get('userId'),
+      };
+
+      $http(currentUser).then(function successCallback(response) {
+        currentUser = response.data;
+        console.log(currentUser);
+      });
+    };
+
+    UsersFactory.updateUser = function(wins, losses, totalGames) {
+      var updateUser = {
         method: 'PUT',
-        url: 'http://localhost:3000/users/' + userId,
+        url: 'http://localhost:3000/users/' + $cookies.get('userId'),
         data: {
           users: {
-            id: userId,
+            id: $cookies.get('userId'),
             wins: wins,
             losses: losses,
             total_games: totalGames
@@ -63,10 +75,8 @@
         }
       };
 
-      $http(newUser).then(function successCallback(response) {
+      $http(updateUser).then(function successCallback(response) {
         currentUser = response.data;
-        updateUserInfo();
-        console.log(newUser);
       });
     };
 
@@ -74,13 +84,14 @@
       userStats.wins += wins;
       userStats.losses += losses;
       userStats.totalGames += 1;
-      UsersFactory.updateUser($cookies.get('userId'), userStats.wins, userStats.losses += losses, userStats.totalGames += 1)
+      UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames)
+      console.log(userStats);
     };
 
-    const updateUserInfo = function(){
+    const retrieveUserInfo = function(){
       $cookies.put('username', currentUser.username);
       $cookies.put('userId', currentUser.id);
-      if (userStats.totalGames == null) {
+      if (currentUser.total_games == null) {
         userStats.wins = 0;
         userStats.losses = 0;
         userStats.totalGames = 0;

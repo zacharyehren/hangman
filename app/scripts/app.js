@@ -18,6 +18,12 @@
         controller: 'GameBoardCtrl as gameBoard',
         templateUrl: '/templates/gameBoard.html'
       });
+      .state('userStats', {
+        url: '/userStats',
+        controller: 'UserStatsCtrl as userStats',
+        templateUrl: '/templates/userStats.html'
+      });
+
   }
 
   angular

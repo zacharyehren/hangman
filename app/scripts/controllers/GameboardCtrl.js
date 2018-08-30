@@ -58,8 +58,9 @@
           }
         }
 
-        ctrl.submitUser = function(){
-          UsersFactory.createUser(ctrl.username, ctrl.password)
+
+        ctrl.showUser = function(){
+          UsersFactory.showUser();
         }
 
       }
