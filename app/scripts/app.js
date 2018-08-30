@@ -22,6 +22,11 @@
         url: '/userStats',
         controller: 'UserStatsCtrl as userStats',
         templateUrl: '/templates/userStats.html'
+      })
+      .state('instructions', {
+        url: '/instructions',
+        controller: 'InstructionsCtrl as instructions',
+        templateUrl: '/templates/instructions.html'
       });
 
   }

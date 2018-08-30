@@ -11,12 +11,13 @@
 </head>
 
 <body>
+  <div class="background-overlay">
   <div class="page-header">
     <div>
       <img src="https://www.telegraph.co.uk/content/dam/news/2016/11/22/blackbeard_trans_NvBQzQNjv4BqMi7XmXlS_Y-KnHwwPRarOI0Eu7qe_9Ywb4wwjdmChD4.jpg?imwidth=450" / class="captain-img" align="left">
       <h1>Captain Swiftknife's Plank</h1>
     </div>
-    <button type="button" class="btn btn-default navbar-btn">Instructions</button>
+    <button type="button" class="btn btn-default navbar-btn" ui-sref="instructions">Instructions</button>
     <button type="button" class="btn btn-default navbar-btn">New Game</button>
   </div>
   <ui-view></ui-view>
@@ -39,6 +40,7 @@
   <script src="/scripts/controllers/UserStatsCtrl.js"></script>
   <script src="/scripts/services/WordFactory.js"></script>
   <script src="/scripts/services/UsersFactory.js"></script>
+  </div>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 body {
-  background: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/tan-antique-vintage-paper-texture-2.jpg') no-repeat center center fixed;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/tan-antique-vintage-paper-texture-2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4 {
   font-family: 'Trade Winds', cursive !important;
 }
 
@@ -25,7 +25,7 @@ div, p {
   margin-top: -10px;
   height: auto;
   width: 200px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 .container, .page-header {
@@ -33,7 +33,25 @@ div, p {
   margin: auto !important;
 }
 
+.instructions-text {
+  font-size: 20px;
+  line-height: 33px;
+  font-weight: 900;
+}
+
+.davey-jones-container {
+  display: flex;
+  align-items: center;
+}
+
+.davey-jones-img {
+  width: 250px;
+  height: auto;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
 .puzzle {
-  float:left;
+  float: left;
   padding-right: 10px;
 }
