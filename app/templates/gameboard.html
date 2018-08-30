@@ -28,7 +28,7 @@
 
   <form name="guessLetter" style="clear: both;">
     <div class="form-group">
-      <input type="text" ng-model="gameBoard.letter" maxlength="1" required>
+      <input type="text" ng-model="gameBoard.letter" maxlength="1">
     </div>
     <button type="submit" class="btn btn-primary" ng-click="gameBoard.submitLetter()">Submit</button>
   </form>
@@ -43,5 +43,3 @@
     <h4 class="display-4">{{ letter }}</h4>
   </div>
 </div>
-
-<button ng-click="gameBoard.showUser();">Show User</button>

@@ -1,6 +1,6 @@
-<section>
+<section class="container">
   <div id="signUp">
-    <h3 ng-hide="signInPage.currentUser">Are you a Wordsmith?</h3>
+    <h3 ng-hide="signInPage.currentUser">Arrr ya up for the challenge?</h3>
     <h3 ng-show="signInPage.currentUser">Back for some more, are ya?</h3>
     <form class="form-horizontal">
     <div class="form-group">
@@ -17,8 +17,8 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-primary" ng-click="signInPage.submitUser()">Submit</button>
-      <button class="btn btn-primary" ng-hide="signInPage.currentUser" ng-click="signInPage.currentUser=true">Already A User?</button>
+      <button class="btn btn-default" ng-click="signInPage.submitUser()">Submit</button>
+      <button class="btn btn-default" ng-hide="signInPage.currentUser" ng-click="signInPage.currentUser=true">Already A User?</button>
       </div>
     </div>
   </div>

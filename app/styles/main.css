@@ -1,3 +1,38 @@
+body {
+  background: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/tan-antique-vintage-paper-texture-2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Trade Winds', cursive !important;
+}
+
+div, p {
+  font-family: 'Merienda', cursive !important;
+}
+
+.page-header {
+  border-bottom: 1px solid black !important;
+  padding-bottom: 25px !important;
+  padding-top: 30px !important;
+}
+
+.captain-img {
+  margin-right: 20px;
+  margin-top: -10px;
+  height: auto;
+  width: 200px;
+  padding-bottom: 15px;
+}
+
+.container, .page-header {
+  max-width: 750px;
+  margin: auto !important;
+}
+
 .puzzle {
   float:left;
   padding-right: 10px;
