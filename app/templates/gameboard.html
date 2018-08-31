@@ -26,7 +26,7 @@
       </div>
     </div>
     <form name="guessLetter" style="clear: both;">
-      <div class="col-lg-6" ng-show="gameBoard.gameStarted">
+      <div ng-show="gameBoard.gameStarted">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Gimme yer letter" maxlength="1" ng-model="gameBoard.letter">
           <span class="input-group-btn">
