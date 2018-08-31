@@ -1,13 +1,17 @@
 (function(){
-  function UserStatsCtrl(UsersFactory, $location){
+  function UserStatsCtrl(UsersFactory, $location, $cookies){
+
+    ctrl = this;
 
     UsersFactory.showUser();
 
-    this.UsersFactory = UsersFactory;
+    ctrl.username = $cookies.get('username');
+
+    ctrl.UsersFactory = UsersFactory;
 
   }
   angular
   .module('hangman')
-  .controller('UserStatsCtrl', ['UsersFactory', '$location', UserStatsCtrl]);
+  .controller('UserStatsCtrl', ['UsersFactory', '$location', '$cookies', UserStatsCtrl]);
 
 })();

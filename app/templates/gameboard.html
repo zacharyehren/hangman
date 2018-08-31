@@ -19,8 +19,6 @@
 <div class="container">
   <div class="jumbotron">
     <h2 class="new-game-text" ng-hide="gameBoard.gameStarted" ng-click="gameBoard.newGame();">
-      Well hello there, {{ gameBoard.username }}.
-      <br />
       Click here to start a game if ya dare!</h2>
     <div class="puzzle-letter-container">
       <div ng-repeat="letter in gameBoard.puzzle track by $index" class="puzzle">
