@@ -18,14 +18,14 @@
 <!-- Game Board -->
 <div class="container">
   <div class="jumbotron">
-    <h2 class="new-game-text" ng-hide="gameBoard.showIncorrect" ng-click="gameBoard.newGame();"> Click here to start a game if ya dare!</h2>
+    <h2 class="new-game-text" ng-hide="gameBoard.gameStarted" ng-click="gameBoard.newGame();"> Click here to start a game if ya dare!</h2>
     <div class="puzzle-letter-container">
       <div ng-repeat="letter in gameBoard.puzzle track by $index" class="puzzle">
         <div class="puzzle-letters">{{ letter }}</div>
       </div>
     </div>
     <form name="guessLetter" style="clear: both;">
-      <div class="col-lg-6">
+      <div class="col-lg-6" ng-show="gameBoard.gameStarted">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Gimme yer letter" maxlength="1" ng-model="gameBoard.letter">
           <span class="input-group-btn">
@@ -39,7 +39,7 @@
 
 <!-- Incorrect Letters -->
 <div class="container" style="text-align:center;">
-  <div ng-show="gameBoard.showIncorrect">
+  <div ng-show="gameBoard.gameStarted">
     <h2>Incorrect Letters</h2>
     <h3>
       <span ng-show="gameBoard.guessesLeft > 1">{{ gameBoard.guessesLeft }}  steps left on the plank!</span>

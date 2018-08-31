@@ -5,7 +5,7 @@
     let challengeWordArray;
     let incorrectGuesses = 0;
     let frm = document.getElementsByName('guessLetter')[0];
-    ctrl.showIncorrect = false;
+    ctrl.gameStarted = false;
 
 
     const createPuzzle = function() {
@@ -21,7 +21,7 @@
     ctrl.newGame = function() {
       WordFactory.retrieveWord().then(function() {
         createPuzzle();
-        ctrl.showIncorrect = true;
+        ctrl.gameStarted = true;
         ctrl.guessesLeft = 6;
         incorrectGuesses = 0;
         ctrl.playerWon = false;
