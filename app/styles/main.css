@@ -109,3 +109,9 @@ div, p {
 .modal-title {
   text-align: center;
 }
+
+/* User Stats */
+
+.user-stats-container {
+  margin-top: 15px !important;
+}

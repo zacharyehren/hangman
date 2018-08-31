@@ -25,7 +25,6 @@
       })
       .state('instructions', {
         url: '/instructions',
-        controller: 'InstructionsCtrl as instructions',
         templateUrl: '/templates/instructions.html'
       });
 

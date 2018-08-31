@@ -20,7 +20,11 @@
         </a>
       </div>
       <button type="button" class="btn btn-default navbar-btn" ui-sref="instructions">Instructions</button>
-      <button type="button" class="btn btn-default navbar-btn" ui-sref="gameBoard">New Game</button>
+      <span ng-controller="GameBoardCtrl as gameBoard" ng-hide="gameBoard.username != undefined">
+        <button type="button" class="btn btn-default navbar-btn" ui-sref="gameBoard">New Game</button>
+        <button type="button" class="btn btn-default navbar-btn" ui-sref="userStats">Yer Plunder</button>
+      </span>
+
     </div>
     <ui-view></ui-view>
     <!-- Angular -->

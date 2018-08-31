@@ -1,11 +1,12 @@
 (function() {
-  function GameBoardCtrl(WordFactory, UsersFactory, $location) {
+  function GameBoardCtrl(WordFactory, UsersFactory, $location, $cookies) {
     ctrl = this;
     let challengeWord;
     let challengeWordArray;
     let incorrectGuesses = 0;
     let frm = document.getElementsByName('guessLetter')[0];
     ctrl.gameStarted = false;
+    ctrl.username = $cookies.get('username');
 
 
     const createPuzzle = function() {
@@ -77,5 +78,5 @@
 
   angular
     .module('hangman')
-    .controller('GameBoardCtrl', ['WordFactory', 'UsersFactory', '$location', GameBoardCtrl]);
+    .controller('GameBoardCtrl', ['WordFactory', 'UsersFactory', '$location', '$cookies', GameBoardCtrl]);
 })();
