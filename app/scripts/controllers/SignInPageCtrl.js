@@ -4,11 +4,6 @@
     ctrl.currentUser = false;
     ctrl.userSignedIn = false;
 
-    const userSignedIn = function() {
-      if ($cookies.get('username') != undefined) {
-        window.location = '/gameBoard';
-      };
-    }
 
     ctrl.submitUser = function() {
       if (ctrl.username == undefined || ctrl.password == undefined) {
@@ -23,7 +18,6 @@
       }
     }
 
-    userSignedIn();
 
   }
 

@@ -5,15 +5,29 @@
     let currentUser;
     let userStats = {};
 
-    // UsersFactory.user_signed_in = function() {
-    //   if ($cookies.get('blocitoffUserId') != undefined) {
-    //     ListsApiRequests.setLists();
-    //   }
-    // }
+    const createCookies = function(user) {
+      $cookies.put('username', user.username);
+      $cookies.put('userId', user.id);
+    }
+
+    const retrieveUserInfo = function(user) {
+      createCookies(user);
+      userStats.wins = user.wins;
+      userStats.losses = user.losses;
+      userStats.totalGames = user.total_games;
+      console.log(userStats)
+    }
+
+    const saveNewUserData = function(user) {
+      createCookies(user);
+      userStats.wins = 0;
+      userStats.losses = 0;
+      userStats.totalGames = 0;
+    }
 
 
     UsersFactory.signInUser = function(username, password) {
-      var user_request = {
+      var userSignedIn = {
         method: 'POST',
         url: 'http://localhost:3000/users/authenticate',
         data: {
@@ -22,9 +36,9 @@
         }
       };
 
-      $http(user_request).then(function successCallback(response) {
+      $http(userSignedIn).then(function successCallback(response) {
         currentUser = response.data
-        retrieveUserInfo();
+        retrieveUserInfo(currentUser);
         console.log(currentUser);
       });
     };
@@ -44,10 +58,11 @@
 
       $http(newUser).then(function successCallback(response) {
         currentUser = response.data;
-        retrieveUserInfo();
+        saveNewUserData(currentUser);
         console.log(newUser);
       });
     };
+
 
     UsersFactory.showUser = function() {
       var currentUser = {
@@ -57,9 +72,12 @@
 
       $http(currentUser).then(function successCallback(response) {
         UsersFactory.showUserData = response.data;
+        retrieveUserInfo(UsersFactory.showUserData);
+
         console.log(UsersFactory.showUserData);
       });
     };
+
 
     UsersFactory.updateUser = function(wins, losses, totalGames, average) {
       var updateUser = {
@@ -78,32 +96,22 @@
 
       $http(updateUser).then(function successCallback(response) {
         currentUser = response.data;
+        console.log(currentUser);
       });
     };
 
-    UsersFactory.gameCompleted = function(wins, losses){
+
+    UsersFactory.gameCompleted = function(wins, losses) {
+      console.log(userStats);
       userStats.wins += wins;
       userStats.losses += losses;
       userStats.totalGames += 1;
       userStats.average = (userStats.wins / userStats.totalGames)
       UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames, userStats.average)
       console.log(userStats);
+
     };
 
-    const retrieveUserInfo = function(){
-      $cookies.put('username', currentUser.username);
-      $cookies.put('userId', currentUser.id);
-      if (currentUser.total_games == null) {
-        userStats.wins = 0;
-        userStats.losses = 0;
-        userStats.totalGames = 0;
-      } else {
-        userStats.wins = currentUser.wins;
-        userStats.losses = currentUser.losses;
-        userStats.totalGames = currentUser.total_games;
-      }
-      console.log(userStats)
-    }
 
     return UsersFactory;
   };

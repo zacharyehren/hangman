@@ -45,7 +45,7 @@
         }
         gameOver();
       } else {
-        alert("Submit a letter, ya scallywag!")
+        alert("Enter a swashbucklin' letter!")
       }
       frm.reset();
     }
@@ -68,10 +68,9 @@
       }
     }
 
-
-    ctrl.showUser = function() {
+  // prevents user data from being erased upon page refresh
       UsersFactory.showUser();
-    }
+
 
   }
 
