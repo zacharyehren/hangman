@@ -2,12 +2,10 @@
   function UserStatsCtrl(UsersFactory, $location, $cookies){
 
     ctrl = this;
+    ctrl.username = $cookies.get('username');
+    ctrl.UsersFactory = UsersFactory;
 
     UsersFactory.showUser();
-
-    ctrl.username = $cookies.get('username');
-
-    ctrl.UsersFactory = UsersFactory;
 
   }
   angular

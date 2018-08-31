@@ -1,12 +1,12 @@
 (function() {
-  function GameBoardCtrl(WordFactory, UsersFactory, $location) {
+  function GameBoardCtrl(WordFactory, UsersFactory, $cookies, $location) {
+
     ctrl = this;
     let challengeWord;
     let challengeWordArray;
     let incorrectGuesses = 0;
     let frm = document.getElementsByName('guessLetter')[0];
     ctrl.gameStarted = false;
-
 
     const createPuzzle = function() {
       challengeWord = localStorage.getItem("challengeWord");
@@ -69,12 +69,17 @@
     }
 
   // prevents user data from being erased upon page refresh
-      UsersFactory.showUser();
+    const retrieveUserData = function(){
+      if ($cookies.get('userId')!= undefined) {
+        UsersFactory.showUser();
+      }
+    }
 
+    retrieveUserData();
 
   }
 
   angular
     .module('hangman')
-    .controller('GameBoardCtrl', ['WordFactory', 'UsersFactory', '$location', GameBoardCtrl]);
+    .controller('GameBoardCtrl', ['WordFactory', 'UsersFactory', '$cookies', '$location', GameBoardCtrl]);
 })();

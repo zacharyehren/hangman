@@ -25,7 +25,6 @@
       userStats.totalGames = 0;
     }
 
-
     UsersFactory.signInUser = function(username, password) {
       var userSignedIn = {
         method: 'POST',
@@ -35,7 +34,6 @@
           password: password
         }
       };
-
       $http(userSignedIn).then(function successCallback(response) {
         currentUser = response.data
         retrieveUserInfo(currentUser);
@@ -55,7 +53,6 @@
           }
         }
       };
-
       $http(newUser).then(function successCallback(response) {
         currentUser = response.data;
         saveNewUserData(currentUser);
@@ -63,13 +60,11 @@
       });
     };
 
-
     UsersFactory.showUser = function() {
       var currentUser = {
         method: 'GET',
         url: 'http://localhost:3000/users/' + $cookies.get('userId'),
       };
-
       $http(currentUser).then(function successCallback(response) {
         UsersFactory.showUserData = response.data;
         retrieveUserInfo(UsersFactory.showUserData);
@@ -77,7 +72,6 @@
         console.log(UsersFactory.showUserData);
       });
     };
-
 
     UsersFactory.updateUser = function(wins, losses, totalGames, average) {
       var updateUser = {
@@ -93,13 +87,11 @@
           }
         }
       };
-
       $http(updateUser).then(function successCallback(response) {
         currentUser = response.data;
         console.log(currentUser);
       });
     };
-
 
     UsersFactory.gameCompleted = function(wins, losses) {
       console.log(userStats);
@@ -109,9 +101,7 @@
       userStats.average = (userStats.wins / userStats.totalGames)
       UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames, userStats.average)
       console.log(userStats);
-
     };
-
 
     return UsersFactory;
   };
