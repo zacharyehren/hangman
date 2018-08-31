@@ -33,6 +33,11 @@ div, p {
   margin: auto !important;
 }
 
+.title-text {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
 .instructions-text {
   font-size: 20px;
   line-height: 33px;
@@ -51,7 +56,56 @@ div, p {
   margin-bottom: 30px;
 }
 
+/* Game Board */
+
 .puzzle {
-  float: left;
+  display: inline-block;
   padding-right: 10px;
+  text-align: center;
+}
+
+.puzzle-letters {
+  font-size: 4em;
+}
+
+.puzzle-letter-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.jumbotron {
+  background: rgba(255, 255, 255, 0.5) !important;
+  margin-top: 15px;
+}
+
+.new-game-text{
+  text-align: center;
+  cursor: pointer;
+}
+
+.input-group {
+  margin: auto;
+}
+
+.input-group-btn {
+  width: 19% !important;
+}
+
+.plank-img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
+  width: 500px;
+}
+
+.modal-img{
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+
+.modal-title {
+  text-align: center;
 }

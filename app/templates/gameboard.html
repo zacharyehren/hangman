@@ -3,43 +3,52 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" ng-show="gameBoard.playerLost">Better Luck Next Time!</h5>
-        <h5 class="modal-title" ng-show="gameBoard.playerWon">Congrats! You Won!</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
+        <h2 class="modal-title" ng-show="gameBoard.playerLost">I figured ya were a scallywag! <br /> Down to Davey Jones' Locker ya go!</h2>
+        <h2 class="modal-title" ng-show="gameBoard.playerWon">Fine. Here's some gold for ya.</h2>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
+      <img ng-show="gameBoard.playerLost" class="modal-img" src="https://www.thevintagenews.com/wp-content/uploads/2018/07/walking_the_plank.jpg" />
+      <img ng-show="gameBoard.playerWon" class="modal-img" src='https://cdn2.list25.com/wp-content/uploads/2013/03/Slide1145.jpg ' />
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="gameBoard.newGame();">Start New Game</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="gameBoard.newGame();">Try yer luck again</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Game Board -->
-<button ng-click="gameBoard.newGame();">New Game!</button>
-<div class="jumbotron">
-  <div ng-repeat="letter in gameBoard.puzzle track by $index" class="puzzle">
-    <h1 class="display-4">{{ letter }}</h1>
-  </div>
-
-  <form name="guessLetter" style="clear: both;">
-    <div class="form-group">
-      <input type="text" ng-model="gameBoard.letter" maxlength="1">
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="new-game-text" ng-hide="gameBoard.showIncorrect" ng-click="gameBoard.newGame();"> Click here to start a game if ya dare!</h2>
+    <div class="puzzle-letter-container">
+      <div ng-repeat="letter in gameBoard.puzzle track by $index" class="puzzle">
+        <div class="puzzle-letters">{{ letter }}</div>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary" ng-click="gameBoard.submitLetter()">Submit</button>
-  </form>
+    <form name="guessLetter" style="clear: both;">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Gimme yer letter" maxlength="1" ng-model="gameBoard.letter">
+          <span class="input-group-btn">
+       <button class="btn btn-default" type="button" ng-click="gameBoard.submitLetter()">Yar!</button>
+     </span>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
-<div ng-show="gameBoard.showIncorrect">
-  <h3>Incorrect Letters ({{ gameBoard.guessesLeft }}
-    <span ng-show="gameBoard.guessesLeft > 1">guesses</span>
-    <span ng-show="gameBoard.guessesLeft == 1">guess</span> left!)
-  </h3>
-  <div ng-repeat="letter in gameBoard.incorrectLetters track by $index" class="puzzle">
-    <h4 class="display-4">{{ letter }}</h4>
+<!-- Incorrect Letters -->
+<div class="container" style="text-align:center;">
+  <div ng-show="gameBoard.showIncorrect">
+    <h2>Incorrect Letters</h2>
+    <h3>
+      <span ng-show="gameBoard.guessesLeft > 1">{{ gameBoard.guessesLeft }}  steps left on the plank!</span>
+      <span ng-show="gameBoard.guessesLeft == 1"> Careful! Ya only got 1 step left and it's down ya go!</span>
+    </h3>
+    </h3>
+    <div ng-repeat="letter in gameBoard.incorrectLetters track by $index" class="puzzle">
+      <div class="display-4 puzzle-letters">{{ letter }}</div>
+    </div>
+    <img class="plank-img" ng-show="gameBoard.guessesLeft == 1" src="http://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/walk-the-plank.png?itok=-88QMUKI&resize=1100x1100" />
   </div>
 </div>
