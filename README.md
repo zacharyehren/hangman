@@ -33,4 +33,4 @@ http://localhost:3001/
 
 ## Extensions
 
-In addition to regular gameplay, the user can log in to keep track of their stats (wins, losses, total games played, win average). This data is saved to a `sqlite3` database on the [hangman-api](https://github.com/zacharyehren/hangman-api). Their stats can then be viewed on the view labeled "Yer Plunder".
+In addition to regular gameplay, the user can log in to keep track of their stats (wins, losses, total games played, win average). This data is saved to a `sqlite3` database on the [hangman-api](https://github.com/zacharyehren/hangman-api). Their stats can then be looked up under the view labeled "Yer Plunder".
