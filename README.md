@@ -2,7 +2,7 @@
 
 Hey all you swashbucklers! Welcome to the pirate-themed version of hangman - where you are forced to take a step on the plank for every wrong letter you guess. If you take six wrong guesses, it's down to Davey Jones' locker you go!
 
-*[Used in conjunction with hangman-api on the back-end] (https://github.com/zacharyehren/hangman-api)*
+*Used in conjunction with [hangman-api](https://github.com/zacharyehren/hangman-api) on the back-end* 
 
 ## Configuration
 
