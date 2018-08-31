@@ -1,6 +1,6 @@
-## Captain Switchknife's Plank
+## Captain Swiftknife's Plank
 
-Hey all you swashbucklers! Welcome to the pirate-themed version of hangman - where you are forced to take a step on the plank for every wrong letter you guess. If you take six wrong guesses, it's down to Davey Jones' locker you go!
+Hey all you swashbucklers! Welcome to the pirate-themed version of hangman - where you are forced to take a step on the plank for every wrong letter you guess. If you make six wrong guesses, it's down to Davey Jones' locker you go!
 
 *Used in conjunction with [hangman-api](https://github.com/zacharyehren/hangman-api) on the back-end.*
 
@@ -33,4 +33,4 @@ http://localhost:3001/
 
 ## Extensions
 
-In addition to regular gameplay, the user can log in to keep track of their stats (wins, losses, win average). This data is saved to a `sqlite3` database on the [hangman-api](https://github.com/zacharyehren/hangman-api). Their stats can then be viewed on the view labeled "Yer Plunder".
+In addition to regular gameplay, the user can log in to keep track of their stats (wins, losses, total games played, win average). This data is saved to a `sqlite3` database on the [hangman-api](https://github.com/zacharyehren/hangman-api). Their stats can then be viewed on the view labeled "Yer Plunder".
