@@ -15,7 +15,6 @@
       userStats.wins = user.wins;
       userStats.losses = user.losses;
       userStats.totalGames = user.total_games;
-      console.log(userStats)
     }
 
     const saveNewUserData = function(user) {
@@ -37,7 +36,6 @@
       $http(userSignedIn).then(function successCallback(response) {
         currentUser = response.data
         retrieveUserInfo(currentUser);
-        console.log(currentUser);
       });
     };
 
@@ -56,7 +54,6 @@
       $http(newUser).then(function successCallback(response) {
         currentUser = response.data;
         saveNewUserData(currentUser);
-        console.log(newUser);
       });
     };
 
@@ -68,8 +65,6 @@
       $http(currentUser).then(function successCallback(response) {
         UsersFactory.showUserData = response.data;
         retrieveUserInfo(UsersFactory.showUserData);
-
-        console.log(UsersFactory.showUserData);
       });
     };
 
@@ -89,18 +84,15 @@
       };
       $http(updateUser).then(function successCallback(response) {
         currentUser = response.data;
-        console.log(currentUser);
       });
     };
 
     UsersFactory.gameCompleted = function(wins, losses) {
-      console.log(userStats);
       userStats.wins += wins;
       userStats.losses += losses;
       userStats.totalGames += 1;
       userStats.average = (userStats.wins / userStats.totalGames)
       UsersFactory.updateUser(userStats.wins, userStats.losses, userStats.totalGames, userStats.average)
-      console.log(userStats);
     };
 
     return UsersFactory;
