@@ -22,7 +22,7 @@ Run the application server:
 $ npm start
 ```
 
-The server will start up. To stop the server, press `cntrl + c`.
+The server will start up. To stop the server, press `ctrl + c`.
 
 
 ## Open the Application
